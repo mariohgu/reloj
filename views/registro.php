@@ -30,8 +30,8 @@ if (!isset($_SESSION["nombre"])) {
                                     <table id="tbllistado" class="table table-bordered table-striped">
                                         <thead>
                                             <th>Opciones</th>
-                                            <th>Fecha</th>
                                             <th>Personal</th>
+                                            <th>Fecha</th>
                                             <th>Coordenadas</th>
                                             <th>Imagen</th>
                                         </thead>
@@ -39,8 +39,8 @@ if (!isset($_SESSION["nombre"])) {
                                         </tbody>
                                         <tfoot>
                                             <th>Opciones</th>
-                                            <th>Fecha</th>
                                             <th>Personal</th>
+                                            <th>Fecha</th>
                                             <th>Coordenadas</th>
                                             <th>Imagen</th>
                                         </tfoot>
