@@ -1,0 +1,9 @@
+/venv
+/config
+/log
+*.bin
+*.tif
+*.pdf
+*.png
+*.jpg
+*.jpeg
