@@ -67,9 +67,22 @@ async function guardarEditar(e) {
     // Crear FormData y añadir el Blob
     var formData = new FormData($('#formulario')[0]);
     formData.append('imagen', blob, 'imagen.png');
-    console.log(formData);
+    
+    // Validar si la latitud está vacía
+    let latitud = formData.get('latitud');
+    let longitud = formData.get('longitud');
+    if (!latitud || latitud.trim() === '' || !longitud || longitud.trim() === '')  {
+        Swal.fire({
+            title: 'Error',
+            text: 'Debe llenar todos los parámetros, incluyendo Ubicacion.',
+            icon: 'error',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'OK'
+        });
+        return; // Detiene la ejecución de la función
+    }
 
-    // Proceder con la llamada AJAX después de tener el Blob
+    // Proceder con la llamada AJAX después de tener el Blob y validar la latitud
     $.ajax({
         url: '../ajax/marcacion.php?op=guardar',
         type: 'POST',
@@ -86,7 +99,7 @@ async function guardarEditar(e) {
                     confirmButtonText: 'OK'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        location.reload();
+                        location.reload();                        
                     }
                 });
             } else {
@@ -105,7 +118,13 @@ async function guardarEditar(e) {
             }
         }
     });
+
+    // formData.forEach(function(value, key) {
+	// 	console.log(key + ": " + value);
+	// });
+
 }
 
 
 init()
+
